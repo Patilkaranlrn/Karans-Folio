@@ -11,14 +11,19 @@ import {
 
 const skills = [
   {
-    category: "Version Control",
-    icon: GitBranch,
-    items: ["Git", "GitHub Copilot"],
+    category: "Languages",
+    icon: Code2,
+    items: ["JavaScript", "TypeScript", "SQL"],
   },
   {
-    category: "CI/CD",
+    category: "Frontend",
+    icon: Sparkles,
+    items: ["AngularJS", "Angular (v7 to v19)", "HTML5", "CSS3", "React"],
+  },
+  {
+    category: "Backend",
     icon: Server,
-    items: ["Jenkins"],
+    items: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
   },
   {
     category: "Databases",
@@ -26,19 +31,19 @@ const skills = [
     items: ["MongoDB", "PostgreSQL"],
   },
   {
-    category: "DevOps",
-    icon: Container,
-    items: ["Docker"],
+    category: "DevOps & Tools",
+    icon: GitBranch,
+    items: ["Jenkins", "CI/CD Pipelines", "Firebase", "Git", "GitHub", "Docker"],
   },
   {
-    category: "AI & Innovation",
+    category: "AI & Automation",
     icon: Sparkles,
-    items: ["AI Prompt Engineering"],
+    items: ["MCP Servers", "AI Agents", "Workflow Automation", "Prompt Engineering", "GitHub Copilot"],
   },
   {
-    category: "Development",
-    icon: Code2,
-    items: ["Full Stack Development"],
+    category: "Delivery & Quality",
+    icon: Container,
+    items: ["Agile", "Scrum", "Unit Testing", "Code Coverage", "Debugging", "Requirement Gathering"],
   },
 ];
 

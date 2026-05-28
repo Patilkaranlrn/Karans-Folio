@@ -41,10 +41,15 @@ export default function Education() {
                 </div>
                 <div className="flex-1 space-y-4">
                   <h3 className="text-3xl font-bold tracking-tight">
-                    Engineering in Computer Science
+                    Bachelor of Engineering (B.E.) - Computer Engineering
                   </h3>
                   <p className="text-2xl text-muted-foreground font-medium">
                     Shivajirao S. Jondhale College of Engineering
+                  </p>
+                  <p className="text-base text-muted-foreground">2020 - 2024 | CGPA: 8.2</p>
+                  <p className="text-sm text-muted-foreground">
+                    Relevant Coursework: Data Structures, Web Development, DBMS,
+                    and Software Engineering.
                   </p>
                   <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground bg-secondary/50 w-fit px-4 py-2 rounded-full mx-auto md:mx-0">
                     <MapPin className="w-4 h-4" />

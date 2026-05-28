@@ -11,7 +11,26 @@ const projects = [
       "A full-stack quick-commerce grocery delivery application inspired by Blinkit and Zepto. Features include real-time product inventory, cart management, secure checkout, and live order tracking.",
     tags: ["React", "Node.js", "MongoDB", "Express", "Redux"],
     gradient: "from-emerald-400/20 to-green-600/20",
-    image: "linear-gradient(to bottom right, var(--color-emerald-400), var(--color-green-600))"
+    codeUrl: "https://github.com/Patilkaran7000",
+    demoUrl: "#",
+  },
+  {
+    title: "AI Fitness ChatBot",
+    description:
+      "Developed an AI-powered fitness chatbot using the Perplexity Sonar model to deliver contextual workout and exercise recommendations based on user prompts.",
+    tags: ["AI", "Prompt Engineering", "Node.js", "Chatbot"],
+    gradient: "from-sky-400/20 to-indigo-600/20",
+    codeUrl: "https://github.com/Patilkaran7000",
+    demoUrl: "#",
+  },
+  {
+    title: "VertiHarvest Haven",
+    description:
+      "Final year innovation project integrating IoT and Machine Learning for smart agriculture monitoring, with a patent filed for the project concept.",
+    tags: ["IoT", "Machine Learning", "Research", "Patent"],
+    gradient: "from-orange-400/20 to-rose-600/20",
+    codeUrl: "https://github.com/Patilkaran7000",
+    demoUrl: "#",
   },
 ];
 
@@ -87,13 +106,17 @@ export default function Projects() {
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      <Button variant="outline" size="lg" className="rounded-full px-8">
-                        <Github className="w-5 h-5 mr-2" />
-                        Code
+                      <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+                        <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-5 h-5 mr-2" />
+                          Code
+                        </a>
                       </Button>
-                      <Button size="lg" className="rounded-full px-8">
-                        <ExternalLink className="w-5 h-5 mr-2" />
-                        Demo
+                      <Button asChild size="lg" className="rounded-full px-8">
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-5 h-5 mr-2" />
+                          Demo
+                        </a>
                       </Button>
                     </div>
                   </div>

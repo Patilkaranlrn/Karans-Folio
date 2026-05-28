@@ -68,8 +68,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, delay: 0.5, ease: appleEase }}
           >
-            Crafting elegant solutions with modern technologies. Passionate about
-            building scalable applications and exploring the latest in web development.
+            Results-driven Full Stack Web Developer with 2 years of experience
+            building scalable enterprise applications. Specialized in Angular,
+            Node.js, Express.js, REST APIs, GraphQL, CI/CD automation, Firebase
+            workflows, and AI-assisted engineering.
           </motion.p>
 
           <motion.div

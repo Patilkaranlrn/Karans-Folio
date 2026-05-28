@@ -14,15 +14,20 @@ export default function Experience() {
     {
       company: "LRN Technologies and Content Solutions",
       role: "Full Stack Developer",
-      duration: "1 year 5 months",
+      duration: "Sept 2024 - Present",
       description:
-        "Key contributor to the Mobile Manager application and internal automation tools.",
+        "Contributing across enterprise platforms including Mobile Manager and Phishing Platform with ownership across frontend, backend, database, CI/CD, and AI-driven automation.",
       achievements: [
-        "Worked on Mobile Manager (Admin side) using AngularJS and NodeJS.",
-        "Managed data using PostgreSQL and MongoDB databases.",
-        "Created 2 critical automations: Jenkins Automation and Google Firebase Automation.",
-        "Successfully executed Angular Migration from version 7 to version 19 within the timeline.",
-        "Achieved 100% code coverage for the whole project including frontend and backend.",
+        "Delivered Angular migration from v7 to v19 for Mobile Manager in 2 months, improving maintainability and performance.",
+        "Designed and implemented Jenkins CI/CD automation pipelines for build, validation, and deployment workflows.",
+        "Built Firebase app automation flows for project setup and Android/iOS configuration to reduce manual operations.",
+        "Achieved 100% code coverage across frontend and backend services through robust unit testing strategy.",
+        "Collaborated directly with US stakeholders for requirement gathering, sprint planning, demos, and delivery alignment.",
+        "Implemented AI-driven engineering workflows using MCP servers and agents from Jira story to development and tests.",
+        "Delivered end-to-end EPIC feature: Custom Sender Domain Management with frontend, backend APIs, and database integration.",
+        "Implemented domain and DMARC validation logic for authenticity, availability, and email security compliance.",
+        "Built real-time domain validation updates and complete feature lifecycle ownership from design to deployment.",
+        "Resolved production-level bugs and improved UI responsiveness across mobile and desktop experiences.",
       ],
     },
   ];
