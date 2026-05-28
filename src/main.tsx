@@ -1,5 +1,4 @@
 import { Toaster } from "@/components/ui/sonner";
-import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { InstrumentationProvider } from "@/instrumentation.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
@@ -23,7 +22,15 @@ function RouteLoading() {
   );
 }
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
+const convexUrl = import.meta.env.VITE_CONVEX_URL as string | undefined;
+const convex = convexUrl ? new ConvexReactClient(convexUrl) : null;
+
+function ConvexWrapper({ children }: { children: React.ReactNode }) {
+  if (convex) {
+    return <ConvexAuthProvider client={convex}>{children}</ConvexAuthProvider>;
+  }
+  return <>{children}</>;
+}
 
 
 
@@ -53,9 +60,8 @@ function RouteSyncer() {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <VlyToolbar />
     <InstrumentationProvider>
-      <ConvexAuthProvider client={convex}>
+      <ConvexWrapper>
         <BrowserRouter>
           <RouteSyncer />
           <Suspense fallback={<RouteLoading />}>
@@ -67,7 +73,7 @@ createRoot(document.getElementById("root")!).render(
           </Suspense>
         </BrowserRouter>
         <Toaster />
-      </ConvexAuthProvider>
+      </ConvexWrapper>
     </InstrumentationProvider>
   </StrictMode>,
 );

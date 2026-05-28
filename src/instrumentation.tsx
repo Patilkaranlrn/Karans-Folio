@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
@@ -6,12 +5,11 @@ import {
 } from "@/components/ui/collapsible";
 import {
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Dialog } from "@radix-ui/react-dialog";
-import { ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 type SyncError = {
@@ -29,28 +27,25 @@ type AsyncError = {
 
 type GenericError = SyncError | AsyncError;
 
-async function reportErrorToVly(errorData: {
+async function reportError(errorData: {
   error: string;
   stackTrace?: string;
   filename?: string;
   lineno?: number;
   colno?: number;
 }) {
-  if (!import.meta.env.VITE_VLY_APP_ID) {
-    return;
-  }
+  if (!import.meta.env.VITE_MONITORING_URL) return;
 
   try {
-    await fetch(import.meta.env.VITE_VLY_MONITORING_URL, {
+    await fetch(import.meta.env.VITE_MONITORING_URL, {
       method: "POST",
       body: JSON.stringify({
         ...errorData,
         url: window.location.href,
-        projectSemanticIdentifier: import.meta.env.VITE_VLY_APP_ID,
       }),
     });
   } catch (error) {
-    console.error("Failed to report error to Vly:", error);
+    console.error("Failed to report error:", error);
   }
 }
 
@@ -72,8 +67,7 @@ function ErrorDialog({
         <DialogHeader>
           <DialogTitle>Runtime Error</DialogTitle>
         </DialogHeader>
-        A runtime error occurred. Open the vly editor to automatically debug the
-        error.
+        A runtime error occurred. Check the browser console for details.
         <div className="mt-4">
           <Collapsible>
             <CollapsibleTrigger>
@@ -88,16 +82,6 @@ function ErrorDialog({
             </CollapsibleContent>
           </Collapsible>
         </div>
-        <DialogFooter>
-          <a
-            href={`https://vly.ai/project/${import.meta.env.VITE_VLY_APP_ID}`}
-            target="_blank"
-          >
-            <Button>
-              <ExternalLink /> Open editor
-            </Button>
-          </a>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
@@ -136,7 +120,7 @@ class ErrorBoundary extends React.Component<
     //   // Warning: `captureOwnerStack` is not available in production.
     //   React.captureOwnerStack(),
     // );
-    reportErrorToVly({
+    reportError({
       error: error.message,
       stackTrace: error.stack,
     });
@@ -187,8 +171,8 @@ export function InstrumentationProvider({
           colno: event.colno,
         });
 
-        if (import.meta.env.VITE_VLY_APP_ID) {
-          await reportErrorToVly({
+        if (import.meta.env.VITE_MONITORING_URL) {
+          await reportError({
             error: event.message,
             stackTrace: event.error?.stack,
             filename: event.filename,
@@ -205,8 +189,8 @@ export function InstrumentationProvider({
       try {
         console.error(event);
 
-        if (import.meta.env.VITE_VLY_APP_ID) {
-          await reportErrorToVly({
+        if (import.meta.env.VITE_MONITORING_URL) {
+          await reportError({
             error: event.reason.message,
             stackTrace: event.reason.stack,
           });

@@ -1,7 +1,7 @@
 {
-  "name": "vly.ai application",
-  "short_name": "vly.ai",
-  "description": "vly.ai application",
+  "name": "Karan Patil Portfolio",
+  "short_name": "Portfolio",
+  "description": "Personal portfolio website",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
